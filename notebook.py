@@ -23,7 +23,10 @@ def _(pd):
     try:
         db = pd.read_json("db.json")
     except:
-        db = pd.read_json("https://raw.githubusercontent.com/JustinTzeJi/PAKW/refs/heads/main/db.json")
+        try:
+            db = pd.read_json("https://raw.githubusercontent.com/JustinTzeJi/PAKW/refs/heads/main/db.json")
+        except:
+            db = pd.read_json("https://corsproxy.marimo.app/https://raw.githubusercontent.com/JustinTzeJi/PAKW/refs/heads/main/db.json")
     return (db,)
 
 
