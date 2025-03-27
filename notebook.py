@@ -20,7 +20,10 @@ def _():
 
 @app.cell
 def _(pd):
-    db = pd.read_json("db.json")
+    try:
+        db = pd.read_json("db.json")
+    except:
+        db = pd.read_json("https://raw.githubusercontent.com/JustinTzeJi/PAKW/refs/heads/main/db.json")
     return (db,)
 
 
