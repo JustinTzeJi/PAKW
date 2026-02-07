@@ -144,11 +144,10 @@ def _(filt_dict, isi_rumah, jumlah_isi, math):
                 filt_dict_copy = filt_dict_copy[
                     filt_dict_copy["JANTINA"] == vv["gender"].value
                 ]
-
-                rent += filt_dict_copy["Mean_p_rent"].values[0]
-                makan_luar = filt_dict_copy["Kos_makan_luar"].values[0]
-                makanan += filt_dict_copy["Mean_TOTAL_PAKW_MAKANAN"].values[0]
-                lain += filt_dict_copy["Mean_p_lain2"].values[0]
+                rent += float(filt_dict_copy["Mean_p_rent"].values[0])
+                makan_luar = float(filt_dict_copy["Kos_makan_luar"].values[0])
+                makanan += float(filt_dict_copy["Mean_TOTAL_PAKW_MAKANAN"].values[0])
+                lain += float(filt_dict_copy["Mean_p_lain2"].values[0])
 
         avg_mean_rent = rent / jumlah_isi.value
         adj_avg_mean_rent = avg_mean_rent * math.pow(jumlah_isi.value, 0.4745)
